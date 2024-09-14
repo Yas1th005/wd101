@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body{
+            padding: 0px;
+            margin:0px;
+            position: relative;
+        }
+        .main{
+            display: flex;
+            gap: 10px;
+        }
+        .left{
+            flex-basis: 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form{
+            background-color: #f9f9f9;
+            border-radius: 8px; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 
+                        0 1px 3px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+        }
+        .each{
+            display: flex;
+            gap: 10px;
+            width: 500px;
+            margin: 10px 0px;
+        }
+        label{
+            flex-basis: 30%;
+        }
+        input{
+            flex-basis: 70%;
+            padding: 7px;
+            border-radius: 5px;
+        }
+        table{
+            border-collapse: collapse;
+            margin: 50px;
+        }
+        th{
+            border:2px solid black;
+            padding: 7px;
+            background-color: aquamarine;
+        }
+        td{
+            border:2px solid black;
+            padding: 7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="left">
+            <form id="form" onsubmit="take(event)">
+                <div class="each">
+                    <label>Name</label>
+                    <input type="text" placeholder="Enter Name" name="name" required>
+                </div>
+                <div class="each">
+                    <label>Email</label>
+                    <input type="email" placeholder="abc@gmail.com" name="email" required>
+                </div>
+                <div class="each">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter Password" name="paswd" required>
+                </div>
+                <div class="each">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" id="birthdate" required>
+                </div>
+                <div style="margin:5px 0px;">
+                    <input type="checkbox" name="accept" required>
+                    <label>Accept terms and conditions</label>
+                </div>
+                <button type="submit" style="background-color: green; color: white;border-radius: 5px;padding: 5px;">Submit</button>
+            </form>
+        </div>
+        <div class="right">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Date</th>
+                        <th>Checkbox</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../Last/index.js"></script>
+    <script>
+        let today = new Date();
+        let min = new Date(today.getFullYear() - 55, today.getMonth(), today.getDate());
+        let max = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+        let minDate = min.toISOString().split('T')[0];
+        let maxDate = max.toISOString().split('T')[0];
+        const birthdate = document.getElementById('birthdate');
+        birthdate.setAttribute('min', minDate);
+        birthdate.setAttribute('max', maxDate);
+    </script>
+</body>
+</html>
