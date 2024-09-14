@@ -22,11 +22,11 @@ function display() {
 function take(event) {
     event.preventDefault();
     let formData = {
-        name: document.getElementsByName("name")[0].value,
-        email: document.getElementsByName("email")[0].value,
-        password: document.getElementsByName("paswd")[0].value,
-        dob: document.getElementsByName("dob")[0].value,
-        accept: document.getElementsByName("accept")[0].checked ? "Yes" : "No"
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        dob: document.getElementById("dob").value,
+        accept: document.getElementById("accept").checked ? "true" : "false"
     };
     add(formData);
     display();
